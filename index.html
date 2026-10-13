@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Couture in HDR</title>
+<meta name="description" content="A couture film in true HDR, made without a camera: production notes from the Myanmar Glam Couture showcase.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: one long-read column like a magazine feature, stills inset in pairs, a quiet toolbar for copying into Medium */
+:root{
+  --bg:#fbfaf7; --ink:#1f1d24; --muted:#615d6b; --rule:#e4e0d8; --accent:#7d1f2e; --gold:#9b7228; --code:#f1eee8;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#16151b;--ink:#ebe7df;--muted:#a7a2b0;--rule:#302e38;--accent:#e58593;--gold:#d8b06a;--code:#22212a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16151b;--ink:#ebe7df;--muted:#a7a2b0;--rule:#302e38;--accent:#e58593;--gold:#d8b06a;--code:#22212a;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:20px/1.62 var(--serif);padding-block:28px 72px;padding-inline:18px}
+.page{max-width:700px;margin:0 auto;display:grid;gap:0}
+.bar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;font:500 13px/1.3 var(--sans);color:var(--muted);border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:34px}
+.bar button{font:600 13px var(--sans);color:var(--bg);background:var(--ink);border:0;border-radius:99px;padding:8px 14px;cursor:pointer}
+.bar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+article{display:grid;gap:0;min-width:0}
+h1{font:600 clamp(2.1rem,6vw,2.9rem)/1.12 var(--serif);letter-spacing:-.01em;margin:0 0 14px;text-wrap:balance}
+.sub{font:400 1.25rem/1.45 var(--serif);color:var(--muted);margin:0 0 22px}
+.byline{font:500 14px/1.4 var(--sans);color:var(--muted);margin:0 0 30px}
+h2{font:600 1.55rem/1.25 var(--sans);letter-spacing:-.01em;margin:46px 0 10px;text-wrap:balance}
+h3{font:600 1.15rem/1.3 var(--sans);margin:30px 0 6px}
+p{margin:0 0 22px}
+ul,ol{margin:0 0 22px;padding-left:1.2em}
+li{margin:0 0 8px}
+strong{font-weight:600}
+blockquote{margin:6px 0 28px;padding:2px 0 2px 22px;border-left:3px solid var(--accent);font-style:italic;font-size:1.15em;color:var(--ink)}
+code{font:400 .8em var(--mono);background:var(--code);padding:2px 5px;border-radius:4px}
+hr{border:0;text-align:center;margin:36px 0}
+hr::before{content:"· · ·";color:var(--gold);letter-spacing:.6em;font:600 18px var(--sans)}
+figure{margin:8px 0 30px;display:grid;gap:8px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+figure img{width:100%;height:auto;display:block;border-radius:3px;background:var(--code)}
+figcaption{font:400 14px/1.45 var(--sans);color:var(--muted);text-align:center}
+.tbl{overflow-x:auto;margin:0 0 26px}
+table{border-collapse:collapse;width:100%;font:400 15px/1.45 var(--sans);font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:13px}
+td.n{text-align:right;white-space:nowrap}
+.end{font:500 14px/1.5 var(--sans);color:var(--muted);border-top:1px solid var(--rule);padding-top:16px;margin-top:20px}
+@media (max-width:520px){body{font-size:18px}.trio{grid-template-columns:1fr 1fr}}
+.film{margin:6px 0 18px;display:grid;gap:8px;justify-items:center}
+.film video{width:100%;max-width:420px;aspect-ratio:9/16;height:auto;background:#000;border-radius:6px}
+.hdrnote{font:400 15px/1.5 var(--sans);color:var(--muted);border-left:3px solid var(--gold);padding-left:14px;margin:0 0 28px}
+figure picture{display:block}
+figure picture img{width:100%;height:auto;display:block;border-radius:3px;background:var(--code)}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<article id="article">
+<h1>A couture film in true HDR, made without a camera</h1>
+<p class="sub">Eight looks, eight locations across Myanmar, and a studio pipeline built to make generated footage hold up on the brightest phone screens.</p>
+<p class="byline">Production notes · Myanmar Glam Couture showcase · October 2026</p>
+<figure class="film">
+  <video controls playsinline preload="metadata" poster="media/poster.jpg" width="1080" height="1920">
+    <source src="media/showcase_hdr_hevc.mp4" type='video/mp4; codecs="hvc1.2.4.L153.B0"'>
+    <source src="media/showcase_hdr_av1.mp4" type='video/mp4; codecs="av01.0.08M.10"'>
+    <source src="media/showcase_sdr.mp4" type='video/mp4; codecs="avc1.640028"'>
+  </video>
+  <figcaption>The showcase cut, in HDR (Dolby Vision / HLG). Edited in CapCut from the generated HDR takes.</figcaption>
+</figure>
+<p class="hdrnote">Best viewed on an HDR screen: iPhone, iPad or a recent Mac in Safari, or Chrome on an HDR display. Other screens get a standard-range version automatically. The photos below are HDR stills taken from the same cut.</p>
+
+<figure class="pair">
+  <picture><source srcset="stills/bagan.avif" type="image/avif"><img src="stills/bagan.jpg" alt="The model in a mustard silk jacket and patterned htamein watches the sun rise over the Bagan temples" loading="lazy" width="1080" height="1920"></picture>
+  <picture><source srcset="stills/inle.avif" type="image/avif"><img src="stills/inle.jpg" alt="The model in an ivory raw-silk blouse in a lakeside pavilion at Inle Lake" loading="lazy" width="1080" height="1920"></picture>
+  <figcaption>Bagan at sunrise and Inle Lake. Every frame in the film is generated.</figcaption>
+</figure>
+
+<p>Myanmar Glam makes modern couture from traditional Burmese dress: the fitted <em>eingyi</em> blouse, the wrapped <em>htamein</em>, hand-embroidered silk. For their 2026 collection they wanted a film that looks like a location campaign shot in Bagan, Yangon and Inle Lake, and that plays in real HDR on a phone.</p>
+<p>There was no location shoot. The film was made end to end in a private generative pipeline: our own tooling, open-weight models we have tuned and directed for this kind of work, and a render farm that scales from a single workstation to rented datacenter GPUs on demand. An AI operator ran the machine room; the art direction stayed human.</p>
+
+<h2>The brief</h2>
+<ul>
+  <li><strong>Eight looks</strong>, each with its own place and light: a pagoda terrace at dawn, a colonial street, a sunlit balcony, a lamp-lit bar, a candlelit vanity, a jetty at dusk, an old teak corridor, a lake pavilion.</li>
+  <li><strong>Vertical</strong>, because the film lives on phones.</li>
+  <li><strong>True HDR</strong>: Dolby Vision for iPhone, HLG everywhere else.</li>
+  <li><strong>The clothes are the product.</strong> Cut, closures, embroidery and the way silk moves all have to be right.</li>
+</ul>
+
+<h2>Garments first</h2>
+<p>Generative video is good at mood and bad at tailoring. Left alone it invents seams, zippers and buttons where the real garment has none, and it borrows details from whatever surrounds the reference photo. We built a garment-reference stage that teaches the system each outfit from every side that matters, and a check that flags any take where the construction drifts. After that, the clothes stopped surprising us.</p>
+
+<figure class="trio">
+  <picture><source srcset="stills/street.avif" type="image/avif"><img src="stills/street.jpg" alt="Purple eingyi blouse and gold htamein, walking past a vintage black car on a colonial Yangon street" loading="lazy" width="1080" height="1920"></picture>
+  <picture><source srcset="stills/red.avif" type="image/avif"><img src="stills/red.jpg" alt="Red silk top and sheer red organza shawl on a sunlit balcony" loading="lazy" width="1080" height="1920"></picture>
+  <picture><source srcset="stills/teal.avif" type="image/avif"><img src="stills/teal.jpg" alt="Teal lace blouse with an embroidered rose, a white flower in her hair, by an old wooden window" loading="lazy" width="1080" height="1920"></picture>
+  <figcaption>Yangon street, red balcony, teal corridor.</figcaption>
+</figure>
+
+<h2>Directing light, not describing faces</h2>
+<p>The fastest way to make generated people look artificial is to over-describe them. Our early takes had the plastic skin and flat frontal light that give AI footage away. The fix was a directing method rather than more adjectives: the model's identity is carried by reference, and every scene is lit the way a cinematographer would light it, with a named source, a direction, and shadow on the far side of the face.</p>
+<p>Every change was proven on fast, cheap preview renders before a single full-quality take was queued. That discipline saved more compute than any optimisation.</p>
+
+<h2>A farm that scales on demand</h2>
+<p>The pipeline runs on our own job dispatcher. It queues work across a local workstation and short-lived cloud GPUs, syncs the model stack to each machine on arrival, ranks jobs by priority, and shuts machines down the moment they go idle. A full take that needs several minutes locally comes back in about a minute and a half in the cloud. Across the whole production the rented compute cost less than a restaurant lunch.</p>
+
+<h2>Real HDR from generated footage</h2>
+<p>Generated video comes out in standard range with a baked-in look: crushed shadows, clipped highlights, pushed colour. Grading it only exaggerates those problems. Our pipeline reconstructs the missing dynamic range into a grading-grade log master, so lamps, candles and a setting sun keep their brightness and detail instead of clipping to white.</p>
+<p>From that master each look gets its own grade, the footage is smoothed to a higher frame rate, and the cut is delivered as Dolby Vision with per-shot brightness metadata, plus HLG for everything else.</p>
+<blockquote>We learned to protect the source. Every processing step that wasn't asked for showed up somewhere in the fabric.</blockquote>
+
+<figure class="pair">
+  <picture><source srcset="stills/dusk.avif" type="image/avif"><img src="stills/dusk.jpg" alt="Navy sheer blouse at dusk on a wooden jetty, city lights across the lake" loading="lazy" width="1080" height="1920"></picture>
+  <picture><source srcset="stills/candle.avif" type="image/avif"><img src="stills/candle.jpg" alt="Gold beaded outfit at a candlelit vanity, her hair in a jewelled bun" loading="lazy" width="1080" height="1920"></picture>
+  <figcaption>Dusk on the jetty and the candlelit vanity: the scenes where HDR shows most.</figcaption>
+</figure>
+
+<h2>Edit and score</h2>
+<p>The showcase is cut on the beat, with cuts snapped to the real rhythm of the track. The music is original and generated in-house. The verticals follow what works on social: a hook in the first two seconds, a cut on every bar, and a steady build to the end card.</p>
+
+<h2>By the numbers</h2>
+<ul>
+  <li><strong>Several hundred</strong> generated takes, from cheap previews to finals.</li>
+  <li><strong>Around thirty</strong> GPU hours across a workstation and on-demand cloud GPUs.</li>
+  <li><strong>Three days</strong> from the first pipeline commit to the first native HDR deliveries.</li>
+  <li><strong>One</strong> art director.</li>
+</ul>
+
+<h2>What we'd tell anyone attempting this</h2>
+<ol>
+  <li><strong>Prove the look cheaply, then scale.</strong></li>
+  <li><strong>Show the system what it gets wrong</strong>, rather than describing it harder.</li>
+  <li><strong>Light the scene; don't describe the face.</strong></li>
+  <li><strong>Protect the source.</strong> Every unrequested processing step costs you somewhere.</li>
+  <li><strong>Check one clip before you batch fifty.</strong></li>
+  <li><strong>Keep every take re-runnable</strong>, with its full setup, so a good idea is never lost.</li>
+</ol>
+
+<hr>
+<p>The film exists as a showcase cut and short vertical cuts for social, all in Dolby Vision and HLG. Watch it on an iPhone with the brightness up; the candle and dusk scenes are where the HDR shows.</p>
+<p class="end">Made with a private generative video and HDR pipeline, our own render-farm tooling, and an AI operator. Hardware: one workstation plus on-demand cloud GPUs.</p>
+</article>
+</div>
+</body>
+</html>
